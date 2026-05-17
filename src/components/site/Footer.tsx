@@ -33,6 +33,7 @@ export function Footer() {
             <div className="text-[10px] uppercase tracking-[0.25em] text-white/40">Connect</div>
             <ul className="mt-5 space-y-3">
               <li><a href="#" className="hover:text-accent">LinkedIn</a></li>
+              <li><a href="#" className="hover:text-accent">Facebook</a></li>
               <li><a href="#" className="hover:text-accent">Instagram</a></li>
               <li><a href="#" className="hover:text-accent">YouTube</a></li>
               <li><a href="#" className="hover:text-accent">X / Twitter</a></li>
@@ -43,8 +44,7 @@ export function Footer() {
             <ul className="mt-5 space-y-3 text-white/70">
               <li>primevatc@gmail.com</li>
               <li>+63 9123456789</li>
-              <li>0962 694 1710</li>
-              <li>Remote-first · Santa Cruz, Laguna · Philippines</li>
+              <li>Santa Cruz, Laguna · Philippines</li>
             </ul>
           </div>
         </div>
