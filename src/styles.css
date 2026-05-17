@@ -1,0 +1,154 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+/* ITC Avant Garde Gothic is a licensed typeface. Using Jost as a free,
+   geometric near-equivalent for headlines per design intent. */
+
+/* Licensed ITC Avant Garde Gothic (provided) - prefer these local files first */
+@font-face {
+  font-family: "ITC Avant Garde Gothic";
+  src: url('/src/assets/fonts/ITC Avant Garde Gothic Book Condensed.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "ITC Avant Garde Gothic";
+  src: url('/src/assets/fonts/ITC Avant Garde Gothic Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "ITC Avant Garde Gothic";
+  src: url('/src/assets/fonts/ITC Avant Garde Gothic CE Demi.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "ITC Avant Garde Gothic";
+  src: url('/src/assets/fonts/ITC Avant Garde Gothic Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-xl: 8px;
+
+  --font-display: "ITC Avant Garde Gothic", "Jost", system-ui, sans-serif;
+  --font-body: "Montserrat", system-ui, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ink: var(--ink);
+  --color-ink-foreground: var(--ink-foreground);
+}
+
+:root {
+  --radius: 4px;
+
+  /* Brand palette */
+  --background: oklch(1 0 0);                    /* #FFFFFF */
+  --foreground: oklch(0 0 0);                    /* #000000 */
+  --ink: oklch(0 0 0);                           /* black surface */
+  --ink-foreground: oklch(1 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0 0 0);
+  --primary: oklch(0 0 0);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.927 0.003 247);           /* #E6E7E8 */
+  --secondary-foreground: oklch(0 0 0);
+  --muted: oklch(0.962 0 0);
+  --muted-foreground: oklch(0.45 0 0);
+  --accent: oklch(0.852 0.169 91);               /* #F9C80C yellow */
+  --accent-foreground: oklch(0 0 0);
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.9 0 0);
+  --input: oklch(0.9 0 0);
+  --ring: oklch(0 0 0);
+}
+
+.dark {
+  --background: oklch(0 0 0);
+  --foreground: oklch(1 0 0);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+  .font-display { font-family: var(--font-display); }
+  .font-body    { font-family: var(--font-body); }
+}
+
+@layer utilities {
+  .hairline-t { border-top: 1px solid var(--color-border); }
+  .hairline-b { border-bottom: 1px solid var(--color-border); }
+  .hairline-y { border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
+  .container-x { padding-left: 1.5rem; padding-right: 1.5rem; }
+  @media (min-width: 1024px) { .container-x { padding-left: 4rem; padding-right: 4rem; } }
+
+  .text-balance { text-wrap: balance; }
+
+  .marquee {
+    animation: marquee 35s linear infinite;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  .fade-up {
+    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+}
